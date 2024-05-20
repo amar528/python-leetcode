@@ -409,11 +409,18 @@ We have 2 pointers, `curr (head)` and `prev (None)`.
 while curr is valid, we traverse the list.
 We store a temp pointer to the next node `curr.next`
 Then reassign `curr.next` to prev (reversing the direction).
-Finally we update our `prev` pointer to the current node, and `curr` to the temporary pointer,
+Finally, we update our `prev` pointer to the current node, and `curr` to the temporary pointer,
 which is the next node in the iteration.
 When iteration ends, we return the `prev` pointer, which will point at the new head of the
 reversed list.
 `28ms beats 96%/98%`
+
+### 2130 - Maximum Twin Sum of Linked List
+We can find the middle of a linked list using the slow/fast pointer method.
+We can push values onto a stack as we traverse to the middle.
+Now was continue traversal, and pop values from the stack, and compare the sum with a current max.
+TODO Ideal solution would be to not use stack, which needs more memory, and reverse the list from the mid point.
+`337ms beats 66%/8%`
 
 ## Prefix Sum
 
