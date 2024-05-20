@@ -75,6 +75,15 @@ We multiply the prefix previously stored at `result[i]` with the postfix sum, up
 
 `264ms beats 68%/77%`
 
+### 334 - Increasing Triplet Subsequence
+
+Keep track of first, second values, which are initially `sys.maxsize`
+We can do this in `O(n)` time and `O(1)` space, by checking for each num `if/elif num <= ...` for first and
+second, assigning first and second in each elif case. 
+Our final elif check can terminate early if True: `elif num > second` means we have a triplet that satisfies
+first < second < third.  After iteration ends, we can return False as so such sequence was seen.
+`772ms beats 90%/73%`
+
 ## Backtracking
 
 ### 17 - Letter Combinations of a Phone Number
