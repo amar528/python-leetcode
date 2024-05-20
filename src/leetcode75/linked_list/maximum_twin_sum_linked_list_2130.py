@@ -7,7 +7,7 @@ from leetcode75.linked_list.listnode import ListNode
 class Solution:
     def pairSum(self, head: Optional[ListNode]) -> int:
 
-        # find middle of list using fast/slow pointer
+        # find the middle of a list using fast/slow pointer technique
         # push values to a stack as we go
         stack = []
         slow = head
