@@ -281,6 +281,20 @@ Finally we can return the value at current_row[0] as it will contain all the pos
 the bottom right cell.
 `32ms beats 79%/41%`
 
+### 1143 - Longest Common Subsequence
+
+Using dp, we can calculate common substring lengths in a 2d array, initially with all 0's
+Let text1 be across the vertical axis (rows), text2 the horizontal (columns)
+We initialise this dp matrix to include +1 offset which allows for cleaner code without bounds checking,
+when i or j are at the -1 positions.
+We process the table in a bottom up approach, which is brute force-like, using a nested loop, in `reverse()`
+for i, j (row, column).
+Comparing `text1[i]` and `text2[j]` - if they match, then we set the value at i,j to 1 + the value calculated
+previously, which is diagonal to i,j, that is at `[i + 1][j + 1]`
+If the characters do not match, then we take the `max()` of the values to the right (j + 1) and down (i + 1)
+The end result will be at `[0][0]`
+`427ms beats 88%/85%`
+
 ## Binary Search Tree
 
 ### 700 - Search in a BST

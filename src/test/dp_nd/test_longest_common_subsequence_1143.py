@@ -40,4 +40,15 @@ class TestSolution(TestCase):
         sol = Solution()
         result = sol.longestCommonSubsequence(text1, text2)
 
+        # 'ur'
+        self.assertEqual(2, result)
+
+    def test_longest_common_subsequence_example20(self):
+        text1 = "oxcpqrsvwf"
+        text2 = "shmtulqrypy"
+
+        sol = Solution()
+        result = sol.longestCommonSubsequence(text1, text2)
+
+        'qr'
         self.assertEqual(2, result)
