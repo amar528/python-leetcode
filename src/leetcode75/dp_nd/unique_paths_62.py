@@ -10,9 +10,11 @@ class Solution:
         # we compute the row above by going in reverse and
         # summing for each cell, that to the right and down (previous row)
         for i in range(m - 1):
+
             # the last column will also only ever be 1, as you can only move down
             for j in range(n - 2, -1, -1):
                 current_row[j] = current_row[j + 1] + previous_row[j]
+
             # update the previous row
             previous_row = current_row
 

@@ -1,5 +1,5 @@
 from unittest import TestCase
-from leetcode75.queue.number_of_recent_calls_933 import RecentCounter
+from leetcode75.lt_queue.number_of_recent_calls_933 import RecentCounter
 
 
 class TestRecentCounter(TestCase):

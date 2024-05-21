@@ -1,5 +1,5 @@
 from unittest import TestCase
-from leetcode75.queue.dota_2_senate_649 import Solution
+from leetcode75.lt_queue.dota_2_senate_649 import Solution
 
 
 class TestSolution(TestCase):

@@ -45,7 +45,7 @@ class Solution:
 
             level_count = len(queue)
 
-            # empty the queue, this represents one level / minute
+            # empty the lt_queue, this represents one level / minute
             for i in range(level_count):
 
                 r, c = queue.popleft()

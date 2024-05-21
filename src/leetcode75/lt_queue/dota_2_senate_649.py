@@ -7,11 +7,11 @@ class Solution:
 
         n = len(senate)
 
-        # separate queue for D and R senators
+        # separate lt_queue for D and R senators
         d_queue = collections.deque()
         r_queue = collections.deque()
 
-        # enqueue each to their own queue
+        # enqueue each to their own lt_queue
         # use the index as the value
         for i, senator in enumerate(senate):
             if senator == "D":
@@ -26,7 +26,7 @@ class Solution:
             r_senator = r_queue.popleft()
 
             # the lowest value has priority
-            # the successful senator is added to the back of the queue with the correct offset
+            # the successful senator is added to the back of the lt_queue with the correct offset
             # the unsuccessful senator is dropped from the next round
             if d_senator < r_senator:
                 d_queue.append(d_senator + n)
