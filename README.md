@@ -66,7 +66,7 @@ We `.pop()` the final whitespace character from the result array.
 ### 238 - Product of Array Except Self
 
 We can make 2 passes through the array, forwards and backwards, to execute this in `O(n)`
-Going forwards, calculate the prefix product for every `i` in `nums`, 
+Going forwards, calculate the prefix product for every `i` in `nums`,
 i.e. keep a `prefix` product total using `*=` for every element to the left: `i-1`. For the `0th` element,
 we use a default prefix of 1. We store this `ith` result in a new `result` array.
 Going backwards, calculate the postfix for every `i` in `nums` by keeping a `postfix` product total,
@@ -79,9 +79,9 @@ We multiply the prefix previously stored at `result[i]` with the postfix sum, up
 
 Keep track of first, second values, which are initially `sys.maxsize`
 We can do this in `O(n)` time and `O(1)` space, by checking for each num `if/elif num <= ...` for first and
-second, assigning first and second in each elif case. 
+second, assigning first and second in each elif case.
 Our final elif check can terminate early if True: `elif num > second` means we have a triplet that satisfies
-first < second < third.  After iteration ends, we can return False as so such sequence was seen.
+first < second < third. After iteration ends, we can return False as so such sequence was seen.
 `772ms beats 90%/73%`
 
 ## Backtracking
@@ -158,7 +158,6 @@ to `mid + 1`
 When the iteration ends, we have our minimum k result.
 `239ms beats 96%/57%`
 
-
 ## Binary Tree
 
 ### Binary Tree - DFS
@@ -188,6 +187,21 @@ The prefix sum is defined as `(current total - target sum)`
 This means that `target sum == (current total - prefix sum)`
 So for each branch, we count the number of times the prefix sum is encountered.
 `41ms beats 89%/38%`
+
+### Longest Zig-Zag in a Binary Tree
+
+Zig-Zag is an alternating left/right pattern, and we want to find the maximum Zig-Zag path.
+Keep a result class instance variable, this is a bit neater than passing results around the recursion.
+We use DFS to traverse the tree.
+At the beginning of each call, we get the `max()` of the `result, left, right` counts so far.
+If we have a valid left child node, we continue the recursion down that path, and set the 
+left count to the current right count + 1. The right count is reset to 0.
+Likewise, if we have a valid right child node, we recurse down this path, and set the right count
+to the current left count + 1. The left count is set to 0.
+In the main function, we start dfs on the root, with 0 for both counts.
+We return the class instance variable as the result.
+`172ms beats `82%/86%
+
 
 ### Binary Tree - BFS
 
@@ -416,6 +430,7 @@ reversed list.
 `28ms beats 96%/98%`
 
 ### 2130 - Maximum Twin Sum of Linked List
+
 We can find the middle of a linked list using the slow/fast pointer method.
 We can push values onto a stack as we traverse to the middle.
 Now was continue traversal, and pop values from the stack, and compare the sum with a current max.
