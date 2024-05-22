@@ -582,3 +582,16 @@ pointers towards each other,
 If the sum is greater, we move the right pointer towards the middle.
 If the sum is smaller, we move the left pointer towards the middle.
 `482ms beats 85%/49%`
+
+## Monotonic Stack
+
+### 739 - Daily Temperatures
+
+To find the answer (the index difference to the next greatest value) for all values at i in `O(n)`,
+we can use a monotone non-increasing stack.
+This means we keep a stack of all index values that are greater than the current i value.
+So when pushing a temperature's index to the monotonic stack, we first pop all values that are
+less than our current value. When we complete this process, the index at the top of the stack
+is the index for the next greater value than i.  So we can update the result[i] to i - index,
+which gives us the number of days until the next greater value.
+`872ms beats 82%/30%`
