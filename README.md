@@ -595,3 +595,20 @@ less than our current value. When we complete this process, the index at the top
 is the index for the next greater value than i.  So we can update the result[i] to i - index,
 which gives us the number of days until the next greater value.
 `872ms beats 82%/30%`
+
+## Trie
+
+### 208 - Implement Trie
+
+We can model a node in the trie has having children (using a dictionary to map prefixes to), and a flag
+which indicates if it is a leaf node (signalling the end of a valid word).
+The trie will have a root node, initially with no children. It is the empty node.
+To insert a word into the trie, we start at the root, and for each character in the word to be inserted,
+we add a child node for that character:
+`bloom = root->b->l->o->o->m`  - where me, the leaf node has it's `is_leaf` flag set to `True`
+To search for a word, we start at the root node, and for each character in the word, we check that there
+exists a child node for that character. If there is no node, then we can return False early.  If we
+have found nodes for all the characters, we check that the last node found has its `is_leaf` flag set.
+To find a prefix, we perform a similar search, but we do not need to check that there exists a valid
+leaf node at the last character.
+`113ms beats 83%/70%`
