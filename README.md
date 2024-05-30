@@ -202,6 +202,16 @@ In the main function, we start dfs on the root, with 0 for both counts.
 We return the class instance variable as the result.
 `172ms beats `82%/86%
 
+### 236 - Lowest Common Ancestor in a Binary Tree
+Running dfs recursively from the root node, we have the base case, where current node is null, where
+we return None.  We return the current node if it is equal to either p or q, since we do not need
+to traverse any further.  This also helps us in the case that a node can be the LCA of itself. 
+Otherwise, we recurse for the left and right subtrees, and get the result.
+If we have a result for both left and right, it means the current node is the common parent, so we can
+return the current node. 
+Otherwise, we return either result from the left or right subtrees.
+`51ms beats 52%/88%`
+
 
 ### Binary Tree - BFS
 
