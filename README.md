@@ -194,7 +194,7 @@ Zig-Zag is an alternating left/right pattern, and we want to find the maximum Zi
 Keep a result class instance variable, this is a bit neater than passing results around the recursion.
 We use DFS to traverse the tree.
 At the beginning of each call, we get the `max()` of the `result, left, right` counts so far.
-If we have a valid left child node, we continue the recursion down that path, and set the 
+If we have a valid left child node, we continue the recursion down that path, and set the
 left count to the current right count + 1. The right count is reset to 0.
 Likewise, if we have a valid right child node, we recurse down this path, and set the right count
 to the current left count + 1. The left count is set to 0.
@@ -203,15 +203,15 @@ We return the class instance variable as the result.
 `172ms beats `82%/86%
 
 ### 236 - Lowest Common Ancestor in a Binary Tree
+
 Running dfs recursively from the root node, we have the base case, where current node is null, where
-we return None.  We return the current node if it is equal to either p or q, since we do not need
-to traverse any further.  This also helps us in the case that a node can be the LCA of itself. 
+we return None. We return the current node if it is equal to either p or q, since we do not need
+to traverse any further. This also helps us in the case that a node can be the LCA of itself.
 Otherwise, we recurse for the left and right subtrees, and get the result.
 If we have a result for both left and right, it means the current node is the common parent, so we can
-return the current node. 
+return the current node.
 Otherwise, we return either result from the left or right subtrees.
 `51ms beats 52%/88%`
-
 
 ### Binary Tree - BFS
 
@@ -274,6 +274,14 @@ now we go backwards from the first step, and calculate the cost of this step as
 the ith cost, plus the minimum of the 2 steps above it, from the dp list.
 the answer is the minimum of the 0, 1 steps
 `51ms beats 79%/22%`
+
+### 198 - House Robber
+
+We have two choices as we can't rob from two adjacent houses - the previous house (and non-adjacent,
+accumulated values up to that house), or the current house plus accumulated values from non adjacent houses.
+We can accumulate these in a `dp` array and use `-1` and `-2` indices respectively.
+The maximal value will propagate up to the final array element, so we return `dp[-1]`
+`31ms beats 85%/12%`
 
 ## DP - nD
 
@@ -602,7 +610,7 @@ we can use a monotone non-increasing stack.
 This means we keep a stack of all index values that are greater than the current i value.
 So when pushing a temperature's index to the monotonic stack, we first pop all values that are
 less than our current value. When we complete this process, the index at the top of the stack
-is the index for the next greater value than i.  So we can update the result[i] to i - index,
+is the index for the next greater value than i. So we can update the result[i] to i - index,
 which gives us the number of days until the next greater value.
 `872ms beats 82%/30%`
 
@@ -617,7 +625,7 @@ To insert a word into the trie, we start at the root, and for each character in 
 we add a child node for that character:
 `bloom = root->b->l->o->o->m`  - where me, the leaf node has it's `is_leaf` flag set to `True`
 To search for a word, we start at the root node, and for each character in the word, we check that there
-exists a child node for that character. If there is no node, then we can return False early.  If we
+exists a child node for that character. If there is no node, then we can return False early. If we
 have found nodes for all the characters, we check that the last node found has its `is_leaf` flag set.
 To find a prefix, we perform a similar search, but we do not need to check that there exists a valid
 leaf node at the last character.
