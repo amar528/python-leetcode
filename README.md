@@ -361,13 +361,13 @@ call dfs for both root nodes, and compare the resulting leaf arrays
 
 ### 1466 - Reorder Routes to City 0
 
-Build an adjacency list for the graph.  The graph is directed, but we also map inverse edges with a cost of 0.
+Build an adjacency list for the graph. The graph is directed, but we also map inverse edges with a cost of 0.
 'Real' edges have a cost of 1.
 We keep track of visited nodes using a set. 0 is marked as visited initially.
 Starting a DFS from city 0, we iterate over all neighbours of the current node.
 For each node that has not yet been visited, we add it to the visited set, and add the cost for the
-edge to the running total.  Real edges (outgoing) will have a cost of 1, which means we would need to
-make a change in order for the traversal back to the parent node.  The fake edges have a 0 cost.
+edge to the running total. Real edges (outgoing) will have a cost of 1, which means we would need to
+make a change in order for the traversal back to the parent node. The fake edges have a 0 cost.
 We call DFS recursively for each neighbour.
 Finally, we return the accumulated count.
 `924ms beats 66%/13%`
@@ -643,3 +643,14 @@ have found nodes for all the characters, we check that the last node found has i
 To find a prefix, we perform a similar search, but we do not need to check that there exists a valid
 leaf node at the last character.
 `113ms beats 83%/70%`
+
+## Intervals
+
+### 435 - Non Overlapping Intervals
+
+We sort the intervals array by the end time.
+We can keep track of the previous valid end time, initially we set to `-sys.maxsize`
+Iterating over the intervals, we check if the preveious end time is greater than our new start time.
+If it is, then we need to remove an interval (we increase the count by 1).
+Otherwise, we update the previous end time.
+`1004ms beats 95%/53%`
