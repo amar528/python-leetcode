@@ -22,3 +22,15 @@ class TestSolution(TestCase):
         sol = Solution()
         result = sol.eraseOverlapIntervals(intervals)
         self.assertEqual(0, result)
+
+    def test_erase_overlap_intervals_example4(self):
+        intervals = [[1, 100], [11, 22], [1, 11], [2, 12]]
+        sol = Solution()
+        result = sol.eraseOverlapIntervals(intervals)
+        self.assertEqual(2, result)
+
+    def test_erase_overlap_intervals_example5(self):
+        intervals = [[1, 2], [2, 3], [3, 4], [-100, -2], [5, 7]]
+        sol = Solution()
+        result = sol.eraseOverlapIntervals(intervals)
+        self.assertEqual(0, result)
