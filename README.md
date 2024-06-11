@@ -372,6 +372,22 @@ We call DFS recursively for each neighbour.
 Finally, we return the accumulated count.
 `924ms beats 66%/13%`
 
+### 399 - Evaluate Division
+Build an adjacency list from the equations, producing a undirected graph.
+For the 'regular' edges (a->b given equation a,b) we associate the given value.
+For the inverse edges, we assign the inverse value, that is 1/v where v is the given value.
+For each query, we run dfs on the 2 values, which gives us the starting and ending nodes.
+The dfs method takes a start and end node, and a visited set.
+The base cases for our recursive dfs are:
+- start node has already been visited, or is not in the graph.  We return -1.
+- start node is the end node, which means the end of the traversal has taken place. We return 1.
+Otherwise, we add start to our visited set, then we iterate through the neighbours for the start
+node.  We recursively call dfs for each neighbour, if we have a valid result (not -1), then we
+have a valid path, so we can return our current value * path value to give the total cost of this traversal.
+Otherwise, we return -1.
+
+`35ms beats 65%/47%`
+
 ### Graphs - BFS
 
 ### 1926 - Nearest Exit from Maze Entrance
