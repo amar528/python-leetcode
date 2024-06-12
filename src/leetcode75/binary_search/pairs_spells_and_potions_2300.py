@@ -6,6 +6,7 @@ class Solution:
 
         result = []  # count for each successful spell
 
+        # potions must be sorted for binary search
         potions.sort()
 
         # for each spell, find the potion with the minimum value that satisfies success
@@ -21,7 +22,9 @@ class Solution:
                 mid = (left + right) // 2
 
                 if spell * potions[mid] >= success:
+                    # we have a working potion from this mid point
                     leftmost_idx = mid
+
                     # now try smaller
                     right = mid - 1
                 else:
