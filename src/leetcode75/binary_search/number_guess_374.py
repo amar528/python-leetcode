@@ -20,17 +20,20 @@ class Solution:
             return 1
 
     def guessNumber(self, n: int) -> int:
-        l, r = 1, n
 
-        while True:
-            mid = l + (r - l) // 2
+        left, right = 1, n
+
+        while left <= right:
+
+            mid = left + (right - left) // 2
             response = self.guess(mid)
 
             if response == 0:
+                # we found the matching number
                 return mid
             elif response < 0:
-                # too high
-                r = mid - 1
+                # too high - search the left half
+                right = mid - 1
             elif response > 0:
-                # too low
-                l = mid + 1
+                # too low - search the right half
+                left = mid + 1
