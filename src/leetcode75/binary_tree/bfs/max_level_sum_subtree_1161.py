@@ -33,5 +33,5 @@ class Solution:
                 # enqueue right child for the next level
                 queue.append((level + 1, node.right))
 
-        # return the maximum sum of all levels
+        # return the key (level) which has the maximal sum
         return max(level_sums, key=level_sums.get)
