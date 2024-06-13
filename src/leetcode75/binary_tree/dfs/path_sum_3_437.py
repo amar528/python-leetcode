@@ -7,11 +7,14 @@ from leetcode75.binary_tree.treenode import TreeNode
 class Solution:
 
     def pathSum(self, root: Optional[TreeNode], targetSum: int) -> int:
-        # sum -> frequency
+
+        # map sum -> count
         sums = collections.defaultdict(int)
         sums[0] = 1
 
         def dfs(node, total):
+
+            # base case: null node
             if not node:
                 return 0
 
@@ -26,6 +29,7 @@ class Solution:
             # update the frequency of this sum
             sums[total] += 1
             count += dfs(node.left, total) + dfs(node.right, total)
+
             # remove it as this branch has completed
             sums[total] -= 1
 
