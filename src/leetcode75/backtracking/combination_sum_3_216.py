@@ -5,9 +5,9 @@ class Solution:
     def combinationSum3(self, k: int, n: int) -> List[List[int]]:
         result = []
 
-        def backtrack(current, total, start):
+        def backtrack(current, total, start_digit):
 
-            # if we have reached the target length then stop
+            # base case: if we have reached the target length, then stop
             if k == len(current):
 
                 # append result if successfully reached the target
@@ -16,7 +16,7 @@ class Solution:
                 return
 
             # for the remaining digits
-            for dig in range(start, 10):
+            for dig in range(start_digit, 10):
                 # store this digit in a new copy for our current combination
                 new_current = current.copy()
                 new_current.append(dig)
@@ -24,7 +24,7 @@ class Solution:
                 # recurse with this new combination, total and next starting number
                 backtrack(new_current, total + dig, dig + 1)
 
-        # start backtracking, empty current and start at 1
+        # start backtracking, empty current list and start at digit 1
         backtrack([], 0, 1)
 
         return result

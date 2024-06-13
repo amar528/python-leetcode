@@ -7,17 +7,21 @@ class Solution:
         if not root:
             return 0
 
-        def dfs(current, max_in_path):
+        def dfs(current, current_max):
 
             if not current:
                 return 0
 
-            this_value = 0
-            if max_in_path <= current.val:
-                this_value = 1
+            count = 0
 
-            max_in_path = max(max_in_path, current.val)
+            if current_max <= current.val:
+                # this is a 'good node' as it has a value greater or equal to the current maximum
+                count = 1
 
-            return this_value + dfs(current.left, max_in_path) + dfs(current.right, max_in_path)
+            current_max = max(current_max, current.val)
 
+            # recurse left and right, adding to our current count
+            return count + dfs(current.left, current_max) + dfs(current.right, current_max)
+
+        # start dfs from the root, current maximum is the root value
         return dfs(root, root.val)

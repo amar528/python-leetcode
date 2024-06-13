@@ -22,12 +22,13 @@ class Solution:
         result = []
 
         def backtrack(i, s):
+
             # base case if we have reached the desired string length
             if i == len(digits):
                 result.append(s)
                 return result
 
-            # recurse for each mapping for the current digit at i
+            # recurse for each mapping for the current digit at i, and next i
             for c in self.mappings[digits[i]]:
                 backtrack(i + 1, s + c)
 

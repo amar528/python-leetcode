@@ -6,7 +6,7 @@ class Solution:
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
         def dfs(node):
 
-            # base case, end recursive subtree
+            # base case: null node
             if not node:
                 return None
 

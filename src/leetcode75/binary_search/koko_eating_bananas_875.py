@@ -4,6 +4,7 @@ from typing import List
 
 class Solution:
     def minEatingSpeed(self, piles: List[int], h: int) -> int:
+
         # k - eats k bananas per hour
         # find minimum k such that all piles are eaten within h hours
 
