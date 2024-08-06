@@ -25,7 +25,7 @@ class Solution:
 
             # handle case when node to be deleted is the root node
             if node == parent:
-
+                pass
 
             if node.left and node.right and node.left.val < node.right.val:
                 parent.left = node.left
